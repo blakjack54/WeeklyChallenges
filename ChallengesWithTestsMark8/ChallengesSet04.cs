@@ -51,14 +51,19 @@ namespace ChallengesWithTestsMark8
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
+            if (objs == null || objs.Length == 0)
+            {
+                return false; // No majority can exist in an empty or null array
+            }
+
             int nullCount = objs.Count(obj => obj == null);
             return nullCount > objs.Length / 2;
         }
 
         public double AverageEvens(int[] numbers)
         {
-            var evens = numbers.Where(n => n % 2 == 0).ToArray();
-            return evens.Length > 0 ? evens.Average() : 0;
+            var evens = numbers.Where(n => n % 2 == 0);
+            return evens.Any() ? evens.Average() : 0;
         }
 
         public int Factorial(int number)
