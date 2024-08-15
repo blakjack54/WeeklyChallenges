@@ -62,6 +62,11 @@ namespace ChallengesWithTestsMark8
 
         public double AverageEvens(int[] numbers)
         {
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+
             var evens = numbers.Where(n => n % 2 == 0);
             return evens.Any() ? evens.Average() : 0;
         }
@@ -76,8 +81,5 @@ namespace ChallengesWithTestsMark8
         }
     }
 
-    public class Business
-    {
-        public string Name { get; set; }
-    }
+    // Removed the redundant Business class
 }
